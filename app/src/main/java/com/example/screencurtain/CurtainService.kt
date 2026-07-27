@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.ActivityInfo
 import android.graphics.PixelFormat
 import android.os.BatteryManager
 import android.os.Build
@@ -76,6 +77,8 @@ class CurtainService : Service() {
                     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
             PixelFormat.TRANSLUCENT
         )
+
+        params.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             params.layoutInDisplayCutoutMode =
